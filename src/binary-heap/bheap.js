@@ -53,13 +53,19 @@ function heapify(array, length=array.length) {
 
 function sort(array){
 
+
     heapify(array);
     console.log('init heap', array);
 
+
+    // We'll make a unsortedZone at the beginning, and a sorted zone at the end. the unsorted zone will shrink.
     const lastIndex = array.length-1;
+
     for (let i = lastIndex ; i >=1 ; i--){
+        // push the biggest on top at the start of the sortedZone
         swap(array, 0, i);
-       // console.log('swaped',i, array);
+
+        // now the heap is ruined. Heapify until sortedZone
         heapifySub(array, 0, i); // length is tricky
         //console.log('heapified', 'length:', i, array);
     }
