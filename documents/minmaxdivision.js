@@ -1,5 +1,6 @@
 //const subValues = [];
-const mapValues = {}
+let optMapValues = {}
+let subMapValues = {}
 
 function opt(K, A) {
 
@@ -13,14 +14,30 @@ function opt(K, A) {
         return A[0];
     }
 
-    for (let i = 1; i < A.length; i++) {
-        const subVal = sub(K, A, i);
-        subValues.push(subVal);
-
-        mapValues[JSON.stringify({K, A, i})] = {A, K, i, subVal}
+    let optKey = JSON.stringify({K,A})
+    if (optMapValues[optKey]!==undefined){
+        const cacheValue = optMapValues[optKey];
+        console.log('hit opt cache, ',cacheValue);
+        return cacheValue;
     }
 
-    return  subValues.reduce(minReducer);
+    for (let i = 1; i < A.length; i++) {
+        let subKey = JSON.stringify({K, A, i});
+        let subVal;
+        if (subMapValues[subKey] !== undefined){
+            const cacheValue = subMapValues[subKey];
+            console.log('hit sub cache, ',cacheValue);
+            subVal= cacheValue;
+        }else{
+            subVal = sub(K, A, i);
+        }
+        subValues.push(subVal);
+        subMapValues[subKey] = subVal
+    }
+
+    const optResult = subValues.reduce(minReducer);
+    optMapValues[optKey]=optResult;
+    return  optResult;
 
 }
 
@@ -58,5 +75,9 @@ const A = [2, 1, 5, 1, 2, 2, 2]
 console.log('###',opt( 3,A));
 
 const array = [7, 9, 2, 1];
+
+subMapValues={};
+optMapValues={};
 console.log('>>>', opt(3, array));
-console.log(mapValues);
+console.log(subMapValues);
+console.log(optMapValues);
