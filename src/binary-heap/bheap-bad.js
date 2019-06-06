@@ -18,6 +18,7 @@ function heapifySub(array, subRootIndex = 0, length=array.length) {
     let rightValue = array[rightIndex];
 
 
+    // only need to swap larger of two children
     let swapedLeft, swapedRight = false;
 
 
@@ -81,6 +82,19 @@ function rightChildIndex(i) {
 }
 
 
+function parent(i){
+    return Math.floor((i+1)/2) - 1
+}
+
+function insert(array,value, i=array.length){
+    array[i]=value;
+    let parentIndex = getParentIndex(i);
+    let parentValue = array[parentIndex];
+
+}
+
+
+
 function swap(array, i, j) {
 
     const t = array[i];
@@ -98,7 +112,7 @@ function getParentIndex(array, index) {
 }
 
 
-heapify(array, 6);
+heapify(array);
 sort(array);
 console.log(array);
 
