@@ -135,6 +135,10 @@ function update(heap, i, newValue){
     insert(heap, newValue);
 }
 
+function createEmptyHeap(){
+    return [0];
+}
+
 let values = [2,4,7,156, 12, -5, 78, 9999, 45, 46 ,44, 45];
 let small= [2,4,7,156];
 
