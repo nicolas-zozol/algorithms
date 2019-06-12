@@ -5,6 +5,8 @@ class MinHeap {
         this.heap = [0]
     }
 
+
+
     swap(i, j) {
         const t = this.heap[i];
         this.heap[i] = this.heap[j];

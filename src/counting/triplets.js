@@ -1,3 +1,5 @@
+//https://app.codility.com/c/run/trainingU39NU5-7H8/
+
 class MaxHeap {
 
 
@@ -67,10 +69,11 @@ class MaxHeap {
 
 
     remove(i) {
+        let value = this.heap[i];
         this.swap(i, this.size());
         this.decrease();
         this.subify(i);
-
+        return value;
 
     }
 
@@ -110,23 +113,56 @@ class MaxHeap {
     }
 
     firstIsSmaller(x, y) {
+
         return x < y;
+
     }
 
     firstIsBigger(x, y) {
+
         return x > y;
+
+    }
+}
+
+class AbsMaxHeap extends MaxHeap{
+    firstIsSmaller(x, y) {
+        return Math.abs(x) < Math.abs(y);
+
+    }
+
+    firstIsBigger(x, y) {
+
+        return Math.abs(x) > Math.abs(y);
+
     }
 }
 
 
 let heap = new MaxHeap();
-heap.insert(12);
-heap.insert(10);
-heap.insert(1);
-heap.insert(2);
-heap.insert(2);
-heap.insert(6);
-heap.insert(6);
-heap.remove(1);
+let abs = new AbsMaxHeap();
 
-console.log(heap.heap);
+function solution(A) {
+    for (let i = 0; i < A.length; i++){
+
+        heap.insert(A[i]);
+        abs.insert(A[i]);
+
+    }
+
+    let h = heap.remove(1)*heap.remove(1)*heap.remove(1);
+    let a = abs.remove(1)*abs.remove(1)*abs.remove(1);
+
+    return h>a ? h : a;
+}
+
+console.log(solution([-4, -6, 3, 4, 5]));
+
+
+
+
+
+
+
+
+
