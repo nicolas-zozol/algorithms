@@ -74,35 +74,30 @@ function semiPrimes(N){
 }
 
 
-function solution(N, P, Q, first =true){
+function solution(N, P, Q){
 
-    if(N>2000 && first){
-        //find greatest
-        let g=Q[0];
-        for (let i=0;i<Q.length; i++){
-            let c = Q[i];
-            if (c>g){
-                g =c;
-            }
-        }
-
-        return solution(g, P, Q, false);
-    }
 
     let semi = semiPrimes(N);
+
+    let appeared =[0];
+
+    for (let i=1;i <= N ;i++){
+
+        if (semi[i]){
+            appeared[i]=appeared[i-1]+1
+        }else{
+            appeared[i]=appeared[i-1]
+        }
+    }
+
+    console.log(appeared);
     let results = [];
     for(let i =0; i < P.length; i++){
-        let count = 0;
-        for (let n=P[i]; n <= Q[i]; n++){
-            if (semi[n]){
-                count ++;
-            }
-        }
-        results.push(count);
+        results.push(appeared[Q[i]] - appeared[P[i]-1]);
     }
     return results;
 }
 
-let P = [4];
-let Q = [8000];
-console.log(solution(2600000,P,Q));
+let P = [1,4,16];
+let Q = [26,10,20];
+console.log(solution(30,P,Q));
