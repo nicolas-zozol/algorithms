@@ -74,9 +74,9 @@ function semiPrimes(N){
 }
 
 
-function solution(N, P, Q){
+function solution(N, P, Q, first =true){
 
-    if(N>2000){
+    if(N>2000 && first){
         //find greatest
         let g=Q[0];
         for (let i=0;i<Q.length; i++){
@@ -85,7 +85,8 @@ function solution(N, P, Q){
                 g =c;
             }
         }
-        return solution(g, P, Q);
+
+        return solution(g, P, Q, false);
     }
 
     let semi = semiPrimes(N);
@@ -102,6 +103,6 @@ function solution(N, P, Q){
     return results;
 }
 
-let P = [1,4,16];
-let Q = [26,10,20];
+let P = [4];
+let Q = [8000];
 console.log(solution(2600000,P,Q));
