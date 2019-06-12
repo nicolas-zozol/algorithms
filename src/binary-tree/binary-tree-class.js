@@ -4,6 +4,7 @@ class BinaryTree {
     constructor(value) {
         this.root = {value};
         this.node = this.root;
+        this._values=[]
     }
 
     insert(value) {
@@ -72,6 +73,24 @@ class BinaryTree {
         return x > y;
     }
 
+
+    traversal(){
+        this._values=[];
+        this._traversal(this.root);
+        return this._values;
+    }
+
+    _traversal(node){
+        if(node.left){
+            this._traversal(node.left);
+        }
+        this._values.push(node.value);
+        if (node.right){
+            this._traversal(node.right);
+        }
+
+    }
+
 }
 
 
@@ -80,6 +99,9 @@ tree.insert(12);
 tree.insert(-8);
 tree.insert(45);
 tree.insert(5);
-console.log(tree.contains(8));
-console.log(tree.contains(-8));
-console.log(tree.contains(12));
+tree.insert(-5);
+tree.insert(51);
+tree.insert(52);
+tree.insert(35);
+
+console.log(tree.traversal());
