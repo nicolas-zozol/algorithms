@@ -8,7 +8,7 @@ function solution(A){
     }
 
     if (A.length ===1){
-        return A[0]
+        return 0
     }
 
     let previous = A[0];
