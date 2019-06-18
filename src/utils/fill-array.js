@@ -1,8 +1,8 @@
-function buildCounters(N) {
+function fill(N, value) {
 
-    let counters = []
-    counters[N - 1] = 0;
-    counters.fill(0, 0, N - 1);
+    let result = [];
+    result[N - 1] = value;
+    result.fill(value, 0, N - 1);
 
-    return counters;
+    return result;
 }
