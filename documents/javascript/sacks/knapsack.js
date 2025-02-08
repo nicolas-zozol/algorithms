@@ -13,7 +13,7 @@ Also given an integer W which represents knapsack capacity,
 You cannot break an item, either pick the complete item, or don’t pick it (0-1 property).
  */
 exports.__esModule = true;
-var memoize_1 = require("../utils/memoize");
+var memoize_1 = require("../utils/memoize.js");
 function max(x, y) {
     return x < y ? y : x;
 }

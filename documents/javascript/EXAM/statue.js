@@ -34,7 +34,7 @@ class BinarySet {
             }
         }
     }
-w
+
     firstIsSmaller(x, y) {
         if (x.quad === y.quad){
             return x.coeff < y.coeff;

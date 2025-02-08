@@ -13,7 +13,7 @@ You cannot break an item, either pick the complete item, or don’t pick it (0-1
  */
 
 
-import { getMemo, setDebugMemo, setMemo} from "../utils/memoize";
+import { getMemo, setDebugMemo, setMemo} from "../utils/memoize.js";
 
 function max(x:number, y:number): number{
     return x<y ? y : x;

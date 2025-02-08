@@ -1,10 +1,11 @@
 {
   "name": "algo-toptal",
+  "type": "module",
   "version": "1.0.0",
   "description": "Algorithms tooling for Toptal entry",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest run"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,8 @@
   "homepage": "https://github.com/nicolas-zozol/algo-toptal#readme",
   "devDependencies": {
     "prettier": "^1.15.3",
-    "ts-node": "^7.0.1",
+    "vite": "^6.1.0",
+    "vitest": "^3.0.5",
     "typescript": "^3.2.1"
   }
 }
