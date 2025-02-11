@@ -1,5 +1,5 @@
 {
-  "name": "algo-toptal",
+  "name": "algo-nicolas",
   "type": "module",
   "version": "1.0.0",
   "description": "Algorithms tooling for Toptal entry",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nicolas-zozol/algo-toptal.git"
+    "url": "git+https://github.com/nicolas-zozol/algo-nicolas.git"
   },
   "author": "Nicolas Zozol",
   "license": "GPL",
   "bugs": {
-    "url": "https://github.com/nicolas-zozol/algo-toptal/issues"
+    "url": "https://github.com/nicolas-zozol/algo-nicolas/issues"
   },
-  "homepage": "https://github.com/nicolas-zozol/algo-toptal#readme",
+  "homepage": "https://github.com/nicolas-zozol/algo-nicolas#readme",
   "devDependencies": {
     "prettier": "^1.15.3",
     "vite": "^6.1.0",
